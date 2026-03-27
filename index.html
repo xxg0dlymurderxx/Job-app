@@ -1,0 +1,485 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>HirePatch | Post Paid Jobs Fast</title>
+    <link rel="icon" type="image/svg+xml" href="./logo.svg" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;700;800&family=Space+Grotesk:wght@500;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <div class="page-shell">
+      <header class="hero">
+        <nav class="topbar">
+          <a class="brand" href="#top" aria-label="HirePatch home">
+            <img class="brand-logo" src="./logo.svg" alt="HirePatch" />
+          </a>
+          <div class="topbar-links" role="tablist" aria-label="HirePatch views">
+            <button
+              class="topbar-tab"
+              id="tab-button-create"
+              type="button"
+              role="tab"
+              aria-selected="false"
+              aria-controls="tab-panel-create"
+              data-tab-target="create"
+            >
+              Create a Listing
+            </button>
+            <button
+              class="topbar-tab"
+              id="tab-button-find"
+              type="button"
+              role="tab"
+              aria-selected="false"
+              aria-controls="tab-panel-find"
+              data-tab-target="find"
+            >
+              Find a Job
+            </button>
+            <button
+              class="topbar-tab"
+              id="tab-button-closed"
+              type="button"
+              role="tab"
+              aria-selected="false"
+              aria-controls="tab-panel-closed"
+              data-tab-target="closed"
+            >
+              Closed Jobs
+            </button>
+          </div>
+        </nav>
+
+        <div class="hero-grid">
+          <section class="hero-copy">
+            <p class="eyebrow">Community task marketplace</p>
+            <h1>Post the work you need done and name your price.</h1>
+            <p class="hero-text">
+              HirePatch makes it easy to list one-off jobs, side gigs, and local
+              tasks with a clear payout, timeline, and job scope.
+            </p>
+            <div class="hero-actions">
+              <button class="button button-primary" type="button" data-tab-target="create">
+                Create a Listing
+              </button>
+              <button class="button button-secondary" type="button" data-tab-target="find">
+                Find a Job
+              </button>
+              <button class="button button-secondary" type="button" data-tab-target="closed">
+                Closed Jobs
+              </button>
+            </div>
+            <div class="stats-row" aria-label="Platform highlights">
+              <article>
+                <strong>24h</strong>
+                <span>Typical response window</span>
+              </article>
+              <article>
+                <strong>Clear pay</strong>
+                <span>Every post includes a budget</span>
+              </article>
+              <article>
+                <strong>Local-first</strong>
+                <span>Great for errands and services</span>
+              </article>
+            </div>
+          </section>
+
+          <aside class="hero-card" aria-label="Example featured listing">
+            <p class="card-label">Featured listing</p>
+            <h2>Need a backyard fence painted before Sunday</h2>
+            <ul class="featured-meta">
+              <li>$320 budget</li>
+              <li>Home services</li>
+              <li>Brooklyn, NY</li>
+            </ul>
+            <p>
+              Fence is already pressure washed. Looking for someone with painting
+              supplies who can finish in one afternoon.
+            </p>
+            <div class="featured-footer">
+              <span>Posted 2 hours ago</span>
+              <button class="pill" type="button">Open</button>
+            </div>
+          </aside>
+        </div>
+      </header>
+
+      <main>
+        <section
+          class="tab-panel"
+          id="tab-panel-create"
+          role="tabpanel"
+          aria-labelledby="tab-button-create"
+          data-tab-panel="create"
+          hidden
+        >
+          <section class="panel panel-form" id="post-job">
+            <div class="section-heading">
+              <p class="eyebrow">Post a listing</p>
+              <h2>Describe the job, payout, and timing.</h2>
+            </div>
+
+            <form id="job-form" class="job-form">
+              <label>
+                Job title
+                <input
+                  type="text"
+                  id="title"
+                  name="title"
+                  maxlength="80"
+                  placeholder="Need help assembling IKEA furniture"
+                  required
+                />
+              </label>
+
+              <div class="form-row">
+                <label>
+                  Budget in USD
+                  <input
+                    type="number"
+                    id="pay"
+                    name="pay"
+                    min="1"
+                    step="1"
+                    placeholder="150"
+                    required
+                  />
+                </label>
+
+                <label>
+                  Pay type
+                  <select id="pay-type" name="pay_type" required>
+                    <option value="fixed">Fixed price</option>
+                    <option value="hourly">Hourly</option>
+                  </select>
+                </label>
+              </div>
+
+              <div class="form-row">
+                <label>
+                  Category
+                  <select id="category" name="category" required>
+                    <option value="Home services">Home services</option>
+                    <option value="Cleaning">Cleaning</option>
+                    <option value="Moving">Moving</option>
+                    <option value="Repairs">Repairs</option>
+                    <option value="Design">Design</option>
+                    <option value="Admin">Admin</option>
+                    <option value="Other">Other</option>
+                  </select>
+                </label>
+              </div>
+
+              <div class="form-row">
+                <label>
+                  Location
+                  <input
+                    type="text"
+                    id="location"
+                    name="location"
+                    maxlength="60"
+                    placeholder="Queens, NY"
+                    required
+                  />
+                </label>
+
+                <label>
+                  Needed by
+                  <input type="date" id="deadline" name="deadline" required />
+                </label>
+              </div>
+
+              <label>
+                Job details
+                <textarea
+                  id="description"
+                  name="description"
+                  rows="5"
+                  maxlength="280"
+                  placeholder="What needs to get done, what tools are required, and what success looks like."
+                  required
+                ></textarea>
+              </label>
+
+              <div class="form-row">
+                <label>
+                  Your name
+                  <input
+                    type="text"
+                    id="contact"
+                    name="contact"
+                    maxlength="40"
+                    placeholder="Jordan"
+                    required
+                  />
+                </label>
+
+                <label>
+                  Email
+                  <input
+                    type="email"
+                    id="email"
+                    name="email"
+                    maxlength="120"
+                    placeholder="jordan@example.com"
+                    required
+                  />
+                </label>
+              </div>
+
+              <div class="form-row">
+                <label>
+                  Phone number
+                  <input
+                    type="tel"
+                    id="phone"
+                    name="phone"
+                    maxlength="25"
+                    placeholder="(555) 123-4567"
+                    required
+                  />
+                </label>
+
+                <label>
+                  Status
+                  <select id="status" name="status" required>
+                    <option value="Open">Open</option>
+                    <option value="Urgent">Urgent</option>
+                    <option value="Flexible">Flexible</option>
+                  </select>
+                </label>
+              </div>
+
+              <div class="form-actions">
+                <button class="button button-primary" type="submit">Publish Listing</button>
+                <button class="button button-secondary" type="reset">Clear Form</button>
+              </div>
+              <p id="form-message" class="form-message" aria-live="polite"></p>
+            </form>
+          </section>
+        </section>
+
+        <section
+          class="tab-panel"
+          id="tab-panel-find"
+          role="tabpanel"
+          aria-labelledby="tab-button-find"
+          data-tab-panel="find"
+          hidden
+        >
+          <section class="panel panel-listings" id="listings">
+            <div class="listings-toolbar">
+              <div class="section-heading">
+                <p class="eyebrow">Find a job</p>
+                <h2>Browse open listings with transparent budgets.</h2>
+              </div>
+
+              <div class="filters">
+                <label>
+                  Search
+                  <input type="search" id="search" placeholder="Search jobs or locations" />
+                </label>
+
+                <label>
+                  Filter
+                  <select id="category-filter">
+                    <option value="All">All categories</option>
+                    <option value="Home services">Home services</option>
+                    <option value="Cleaning">Cleaning</option>
+                    <option value="Moving">Moving</option>
+                    <option value="Repairs">Repairs</option>
+                    <option value="Design">Design</option>
+                    <option value="Admin">Admin</option>
+                    <option value="Other">Other</option>
+                  </select>
+                </label>
+              </div>
+            </div>
+
+            <p class="listings-note">
+              Only listings posted from this browser can be marked closed.
+            </p>
+            <p id="listings-message" class="listings-message" aria-live="polite"></p>
+            <div id="listings-grid" class="listings-grid" aria-live="polite"></div>
+          </section>
+        </section>
+
+        <section
+          class="tab-panel"
+          id="tab-panel-closed"
+          role="tabpanel"
+          aria-labelledby="tab-button-closed"
+          data-tab-panel="closed"
+          hidden
+        >
+          <section class="panel panel-listings panel-closed" id="closed-listings">
+            <div class="section-heading">
+              <p class="eyebrow">Closed jobs</p>
+              <h2>See the work that has already been wrapped up.</h2>
+            </div>
+
+            <div id="closed-listings-grid" class="listings-grid" aria-live="polite"></div>
+          </section>
+        </section>
+
+        <section class="tab-panel" id="tab-panel-job" data-tab-panel="job" hidden>
+          <section class="panel panel-job-view" id="job-view">
+            <div class="job-view-topbar">
+              <div class="section-heading">
+                <p class="eyebrow">Job details</p>
+                <h2 id="job-view-title"></h2>
+              </div>
+              <button
+                class="button button-secondary job-view-close"
+                id="job-view-close"
+                type="button"
+              >
+                Back to Listings
+              </button>
+            </div>
+
+            <div class="job-view-card">
+              <div class="job-view-header">
+                <p id="job-view-category" class="card-label"></p>
+                <span id="job-view-status" class="listing-status"></span>
+              </div>
+              <p id="job-view-pay" class="job-detail-pay"></p>
+              <p id="job-view-description" class="job-detail-description"></p>
+              <dl class="job-view-meta">
+                <div>
+                  <dt>Rough location</dt>
+                  <dd id="job-view-location"></dd>
+                </div>
+                <div>
+                  <dt>Needed by</dt>
+                  <dd id="job-view-deadline"></dd>
+                </div>
+                <div>
+                  <dt>Posted by</dt>
+                  <dd id="job-view-contact"></dd>
+                </div>
+                <div>
+                  <dt>Email</dt>
+                  <dd id="job-view-email"></dd>
+                </div>
+                <div>
+                  <dt>Phone</dt>
+                  <dd id="job-view-phone"></dd>
+                </div>
+              </dl>
+            </div>
+
+            <div class="job-view-message">
+              <div class="section-heading">
+                <p class="eyebrow">Message Seller</p>
+                <h2>Write a quick message.</h2>
+              </div>
+              <form id="job-message-form" class="job-message-form">
+                <div class="form-row">
+                  <label>
+                    Your name
+                    <input
+                      type="text"
+                      id="job-message-sender-name"
+                      name="sender_name"
+                      maxlength="60"
+                      placeholder="Alex"
+                      required
+                    />
+                  </label>
+
+                  <label>
+                    Your email
+                    <input
+                      type="email"
+                      id="job-message-sender-email"
+                      name="sender_email"
+                      maxlength="120"
+                      placeholder="alex@example.com"
+                      required
+                    />
+                  </label>
+                </div>
+                <label>
+                  Your phone or best contact
+                  <input
+                    type="text"
+                    id="job-message-sender-contact"
+                    name="sender_contact"
+                    maxlength="120"
+                    placeholder="(555) 123-4567"
+                    required
+                  />
+                </label>
+                <label>
+                  Your message
+                  <textarea
+                    id="job-message-body"
+                    name="message"
+                    rows="5"
+                    maxlength="500"
+                    placeholder="Hi, I can do this job. When would you like to start?"
+                    required
+                  ></textarea>
+                </label>
+                <div class="job-message-actions">
+                  <button class="button button-primary" id="job-message-send" type="submit">
+                    Send Message
+                  </button>
+                </div>
+                <p id="job-message-status" class="form-message" aria-live="polite"></p>
+              </form>
+            </div>
+          </section>
+        </section>
+      </main>
+    </div>
+
+    <template id="listing-template">
+      <article class="listing-card">
+        <div class="listing-top">
+          <div>
+            <p class="listing-category"></p>
+            <h3 class="listing-title"></h3>
+          </div>
+          <span class="listing-status"></span>
+        </div>
+        <p class="listing-pay"></p>
+        <p class="listing-description"></p>
+        <dl class="listing-meta">
+          <div>
+            <dt>Location</dt>
+            <dd class="listing-location"></dd>
+          </div>
+          <div>
+            <dt>Needed by</dt>
+            <dd class="listing-deadline"></dd>
+          </div>
+          <div>
+            <dt>Posted by</dt>
+            <dd class="listing-contact"></dd>
+          </div>
+          <div class="listing-closed-meta" hidden>
+            <dt>Closed on</dt>
+            <dd class="listing-closed-at"></dd>
+          </div>
+        </dl>
+        <div class="listing-actions">
+          <button class="button button-secondary listing-close-button" type="button">
+            Mark Closed
+          </button>
+        </div>
+      </article>
+    </template>
+
+    <script src="./script.js"></script>
+  </body>
+</html>

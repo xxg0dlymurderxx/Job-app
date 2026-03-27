@@ -1,0 +1,28 @@
+services:
+  - type: web
+    name: hirepatch
+    runtime: python
+    plan: free
+    buildCommand: ""
+    startCommand: python3 app.py
+    envVars:
+      - key: PYTHON_VERSION
+        value: "3.11.11"
+      - key: DATA_DIR
+        value: /var/data
+      - key: DB_PATH
+        value: /var/data/hirepatch.db
+      - key: TWILIO_ACCOUNT_SID
+        sync: false
+      - key: TWILIO_AUTH_TOKEN
+        sync: false
+      - key: TWILIO_FROM_NUMBER
+        sync: false
+      - key: RESEND_API_KEY
+        sync: false
+      - key: RESEND_FROM_EMAIL
+        sync: false
+    disk:
+      name: hirepatch-data
+      mountPath: /var/data
+      sizeGB: 1
